@@ -15,6 +15,7 @@ class Grass {
             [this.x + 1, this.y + 1]
         ];
 
+        
     }
     chooseCell(character) {
         let found = [];

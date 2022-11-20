@@ -1,4 +1,5 @@
-class Vagr extends LivingC{
+let LivingC = require ('./LivingC')
+module.exports = class Vagr extends LivingC{
 constructor(x,y,index){
     super(x,y,index)
     this.sovac=8;

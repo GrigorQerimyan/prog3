@@ -1,4 +1,5 @@
-class GrassEater extends LivingC{
+let LivingC = require ('./LivingC')
+module.exports = class GrassEater extends LivingC{
     constructor(x, y, index) {
        super(x,y,index)
        this.energy = 8

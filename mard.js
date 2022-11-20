@@ -1,4 +1,5 @@
-class Mard extends LivingC{
+let LivingC = require ('./LivingC')
+module.exports = class Mard extends LivingC{
     constructor(x,y,index){
    super(x,y,index)
         this.kind=8

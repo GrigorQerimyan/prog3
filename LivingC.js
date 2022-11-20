@@ -1,4 +1,4 @@
-class LivingC{
+module.exports = class LivingC{
     constructor(x, y, index) {
         this.x = x;
         this.y = y;

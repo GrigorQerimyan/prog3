@@ -1,4 +1,5 @@
-class Shun extends LivingC{ 
+let LivingC = require ('./LivingC')
+module.exports = class Shun extends LivingC{ 
 constructor(x,y,index){
     super(x,y,index)
     this.kind=12

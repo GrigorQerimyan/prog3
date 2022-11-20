@@ -1,4 +1,5 @@
-class Grass extends LivingC{
+let LivingC = require ('./LivingC')
+module.exports = class Grass extends LivingC{
  
 
 

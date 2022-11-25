@@ -23,11 +23,15 @@ module.exports = class GrassEater extends LivingC{
         return super.chooseCell(character) 
 
     }
-
+    random(ch){
+        let found = this.chooseCell(ch);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
+    }
     mul() {
         this.energy;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(0);
+        var newCell = this.random(0);
 
         if (newCell && this.energy >= 11) {
             var newX = newCell[0];
@@ -42,8 +46,8 @@ module.exports = class GrassEater extends LivingC{
     }
     move() {
         this.energy;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(0);
+        var newCell = this.random(0);
         
         if(newCell){
             var newX = newCell[0];
@@ -59,8 +63,8 @@ module.exports = class GrassEater extends LivingC{
     }
     eat(){
         this.energy;
-        var emptyCells = this.chooseCell(1);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(1);
+        var newCell = this.random(1);
         
         if(newCell){
             var newX = newCell[0];

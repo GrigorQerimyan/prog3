@@ -10,6 +10,7 @@
 // var grassArr3 = [];
 // var grassArr4 = [];
 // var grassArr5 = [];
+let socket =  io() 
 var side = 15;
 
 function setup() {
@@ -20,8 +21,8 @@ function setup() {
       
     }
 
-function draw() {
-     
+function nkarel(matrix) {
+     console.log(matrix)
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
        
@@ -51,9 +52,7 @@ function draw() {
         }
     }
 
-    const socket = io("ws://localhost:3000")
-    socket.on("send matrix", matrix)
-     
+   
      
     // for(var i in grassArr){
     //     grassArr[i].mul();
@@ -91,3 +90,4 @@ function draw() {
     //     grassArr5[i].eat()
     // }
 }
+socket.on("send matrix",nkarel);

@@ -23,10 +23,15 @@ chooseCell(character) {
     return super.chooseCell(character);
 
 }
+random(ch,ch2){
+    let found = this.chooseCell(ch,ch2);
+    let result = Math.floor(Math.random()*found.length)
+    return found[result];
+}
 mul() {
     this.sovac;
-    var emptyCells = this.chooseCell(0 );
-    var newCell = random(emptyCells);
+    // var emptyCells = this.chooseCell(0 );
+    var newCell = this.random(0);
 
     if (newCell && this.sovac >= 12) {
         var newX = newCell[0];
@@ -41,13 +46,13 @@ mul() {
 }
 move() {
     this.sovac;
-    const emptyCells = this.chooseCell(0);
-    const grassCells = this.chooseCell(1);
-    const allCells=[
-        ...emptyCells,
-        ...grassCells
-    ]
-    var newCell = random(allCells);
+    // const emptyCells = this.chooseCell(0);
+    // const grassCells = this.chooseCell(1);
+    // const allCells=[
+    //     ...emptyCells,
+    //     ...grassCells
+    // ]
+    var newCell = this.random(0,1);
     
     if(newCell){
         var newX = newCell[0];
@@ -69,8 +74,8 @@ move() {
 
 eat(){
     this.sovac;
-    var emptyCells = this.chooseCell(2);
-    var newCell = random(emptyCells);
+    // var emptyCells = this.chooseCell(2);
+    var newCell = this.random(2);
     
     if(newCell){
         matrix[this.y][this.x]=0;

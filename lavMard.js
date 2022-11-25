@@ -38,11 +38,16 @@ module.exports = class lavMard extends LivingC{
          
     //     }
     // }
+    random(ch,ch2){
+        let found = this.chooseCell(ch,ch2);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
+    }
     move(){
       
        
-        var emptyCells = this.chooseCell(1);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(1);
+        var newCell = this.random(1);
         
         if(newCell){
        
@@ -60,13 +65,13 @@ module.exports = class lavMard extends LivingC{
     
     eat(){
         this.kind;
-        const grassEaterCells = this.chooseCell(2);
-        const VagrCells = this.chooseCell(4);
-        const allCells=[
-            ...grassEaterCells,
-            ...VagrCells
-        ]
-        var newCell = random(allCells);
+        // const grassEaterCells = this.chooseCell(2);
+        // const VagrCells = this.chooseCell(4);
+        // const allCells=[
+        //     ...grassEaterCells,
+        //     ...VagrCells
+        // ]
+        var newCell = this.random(2,4);
         
         if(newCell){
             var newX = newCell[0];

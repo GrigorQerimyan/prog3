@@ -18,19 +18,24 @@ this.directions = [
 ];
 
 }
+random(ch,ch1){
+    let found = this.chooseCell(ch,ch1);
+    let result = Math.floor(Math.random()*found.length)
+    return found[result];
+}
 chooseCell(character) {
     this.getNewCoordinates();
     return super.chooseCell(character);
 }
 mul() {
     this.kind-=0.1;
-    var emptyCells = this.chooseCell(0);
-    var grassCells = this.chooseCell(1);
-    var allCells=[
-        ...emptyCells,
-       ... grassCells
-    ]
-    var newCell = random(allCells);
+    // var emptyCells = this.chooseCell(0);
+    // var grassCells = this.chooseCell(1);
+    // var allCells=[
+    //     ...emptyCells,
+    //    ... grassCells
+    // ]
+    var newCell = this.random(0,1);
 
     if (newCell && this.kind >= 12) {
         var newX = newCell[0];
@@ -45,8 +50,8 @@ mul() {
 }
 move(){
         this.kind;
-    var emptyCells = this.chooseCell(1);
-    var newCell = random(emptyCells);
+    // var emptyCells = this.chooseCell(1);
+    var newCell = this.random(0,1);
     
     if(newCell){
         var newX = newCell[0];
@@ -68,9 +73,9 @@ eat(){
   
    
    
-    const VagrCells = this.chooseCell(3);
+    // const VagrCells = this.chooseCell(3);
    
-    var newCell = random(VagrCells);
+    var newCell = this.random(3);
     
     if(newCell){
    

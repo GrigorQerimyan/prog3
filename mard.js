@@ -3,8 +3,6 @@ module.exports = class Mard extends LivingC{
     constructor(x,y,index){
    super(x,y,index)
         this.kind=8
-    
-    
     }
     getNewCoordinates() {
     this.directions = [
@@ -23,6 +21,12 @@ module.exports = class Mard extends LivingC{
         this.getNewCoordinates()
         return super.chooseCell(character);
     
+    
+    }
+    random(ch,ch1){
+        let found = this.chooseCell(ch,ch1);
+        let result = Math.floor(Math.random()*found.length)
+        return found[result];
     }
     // mul() {
     //     this.kind;
@@ -43,8 +47,8 @@ module.exports = class Mard extends LivingC{
     move(){
       
        
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        // var emptyCells = this.chooseCell(0);
+        var newCell = this.random(0);
         
         if(newCell){
        
@@ -61,13 +65,13 @@ module.exports = class Mard extends LivingC{
     
     eat(){
         this.kind;
-        const grassEaterCells = this.chooseCell(2);
-        const VagrCells = this.chooseCell(3);
-        const allCells=[
-            ...grassEaterCells,
-            ...VagrCells
-        ]
-        var newCell = random(allCells);
+        // const grassEaterCells = this.chooseCell(2);
+        // const VagrCells = this.chooseCell(3);
+        // const allCells=[
+        //     ...grassEaterCells,
+        //     ...VagrCells
+        // ]
+        var newCell = this.random(2,3);
         
         if(newCell){
             var newX = newCell[0];

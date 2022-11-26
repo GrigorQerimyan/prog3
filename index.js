@@ -11,8 +11,8 @@ app.get('/', function (req, res) {
 
 server.listen(3000);
 
-var p = 90;
-var t = 90;
+// var p = 90;
+// var t = 90;
 
 
 
@@ -22,48 +22,61 @@ grassArr2 = [];
 grassArr3 = [];
 grassArr4 = [];
 grassArr5 = [];
-function matrixgenerator(ch,ch1,ch2,ch3,ch4,ch5,ch6){
+function matrixgenerator(ch, ch2, ch3, ch4, ch5, ch6, ch7) {
     matrix = [];
-    for(let i = 0;i<ch.length;i++){
+   
+    for (let i = 0; i < ch2.length; i++) {
         matrix = []
-        for(let j = 0; ch[i].length; j++){
-        matrix.push(0)}
-    }
-    for(let i = 0;i<ch1.length;i++){
-        matrix = []
-        for(let j = 0; ch1[i].length; j++){
-        matrix.push(1)}
-    }
-    for(let i = 0;i<ch2.length;i++){
-        matrix = []
-        for(let j = 0; ch2[i].length; j++){
-        matrix.push(2)}
-    }
-    for(let i = 0;i<ch3.length;i++){
-        matrix = []
-        for(let j = 0; ch3[i].length; j++){
-        matrix.push(3)
+        for (let j = 0; ch2[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(1)
         }
     }
-    for(let i = 0;i<ch4.length;i++){
+    for (let i = 0; i < ch3.length; i++) {
         matrix = []
-        for(let j = 0; ch4[i].length; j++){
-        matrix.push(4)}
+        for (let j = 0; ch3[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(2)
+        }
     }
-    for(let i = 0;i<ch5.length;i++){
+    for (let i = 0; i < ch4.length; i++) {
         matrix = []
-        for(let j = 0; ch5[i].length; j++){
-        matrix.push(5)}
+        for (let j = 0; ch4[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(3)
+        }
     }
-    for(let i = 0;i<ch6.length;i++){
+    for (let i = 0; i < ch5.length; i++) {
         matrix = []
-        for(let j = 0; ch6[i].length; j++){
-        matrix.push(6)}
+        for (let j = 0; ch5[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(4)
+        }
+    }
+    for (let i = 0; i < ch6.length; i++) {
+        matrix = []
+        for (let j = 0; ch6[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(5)
+        }
+    }
+    for (let i = 0; i < ch7.length; i++) {
+        matrix = []
+        for (let j = 0; ch7[i].length; j++) {
+            let x = Math.floor(Math.random() * ch)
+            let y = Math.floor(Math.random() * ch)
+            matrix[x][y].push(6)
+        }
     }
     io.sockets.emit("send matrix", matrix);
 }
-let x = Math.floor(Math.random()* matLength)//aveacru ame ch-i  vra
-matrixgenerator("100","30","4","2","2")
+
+matrixgenerator(100, 30, 13, 7, 2, 2, 2, 2)
 
 // function gen() {
 
@@ -71,7 +84,7 @@ matrixgenerator("100","30","4","2","2")
 //         matrix[i] = [];
 //         for (let j = 0; j < t; j++) {
 //             matrix[i][j] = Math.floor(Math.random() * 7);
-         
+
 //           }
 //         }
 //     }

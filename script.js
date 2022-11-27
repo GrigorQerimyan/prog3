@@ -11,18 +11,18 @@
 // var grassArr4 = [];
 // var grassArr5 = [];
 let socket =  io() 
-var side = 15;
+var side = 10;
 
 function setup() {
     frameRate(150);
-    createCanvas(1000,1000);
+    createCanvas(side * 30,side *30);
     background('#acacac');
 
       
     }
 
 function nkarel(matrix) {
-     console.log(matrix)
+
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
        
@@ -51,6 +51,7 @@ function nkarel(matrix) {
 
         }
     }
+  
 
    
      

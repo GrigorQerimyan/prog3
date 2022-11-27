@@ -11,11 +11,13 @@ app.get('/', function (req, res) {
 
 server.listen(3000);
 
-// var p = 90;
-// var t = 90;
+var p = 100;
+var t = 100;
 
 
+matrix = [
 
+];
 grassArr = [];
 grassArr1 = [];
 grassArr2 = [];
@@ -23,61 +25,71 @@ grassArr3 = [];
 grassArr4 = [];
 grassArr5 = [];
 function matrixgenerator(ch, ch2, ch3, ch4, ch5, ch6, ch7) {
-    matrix = [];
-   
-    for (let i = 0; i < ch2.length; i++) {
-        matrix = []
-        for (let j = 0; ch2[i].length; j++) {
+matrix = []
+for (let i = 0; i < ch; i++) {
+    matrix[i] = [];
+    for (let j = 0; j < ch; j++) {
+        matrix[i][j] = 0
+
+      }
+    }
+
+    for (let i = 0; i < ch2; i++) {
+        
+        for (let j = 0; j < ch2; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(1)
+            matrix[x][y] = 1 
         }
     }
-    for (let i = 0; i < ch3.length; i++) {
-        matrix = []
-        for (let j = 0; ch3[i].length; j++) {
+    for (let i = 0; i < ch3; i++) {
+       
+        for (let j = 0; j < ch3; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(2)
+            matrix[x][y] = 2
         }
     }
-    for (let i = 0; i < ch4.length; i++) {
-        matrix = []
-        for (let j = 0; ch4[i].length; j++) {
+    for (let i = 0; i < ch4; i++) {
+       
+        for (let j = 0; j < ch4; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(3)
+            matrix[x][y] = 3
         }
     }
-    for (let i = 0; i < ch5.length; i++) {
-        matrix = []
-        for (let j = 0; ch5[i].length; j++) {
+    for (let i = 0; i < ch5; i++) {
+        
+        for (let j = 0; j < ch5; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(4)
+            matrix[x][y] = 4
         }
     }
-    for (let i = 0; i < ch6.length; i++) {
-        matrix = []
-        for (let j = 0; ch6[i].length; j++) {
+    for (let i = 0; i < ch6; i++) {
+    
+        for (let j = 0; j < ch6; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(5)
+            matrix[x][y] = 5
         }
     }
-    for (let i = 0; i < ch7.length; i++) {
-        matrix = []
-        for (let j = 0; ch7[i].length; j++) {
+    for (let i = 0; i < ch7; i++) {
+       
+        for (let j = 0; j < ch7; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y].push(6)
+            matrix[x][y] = 6
         }
     }
     io.sockets.emit("send matrix", matrix);
-}
+    return matrix
+  }
 
-matrixgenerator(100, 30, 13, 7, 2, 2, 2, 2)
 
+
+matrix = matrixgenerator(100, 70, 30, 10, 3, 2, 2)
+console.log(matrix)
 // function gen() {
 
 //     for (let i = 0; i < p; i++) {
@@ -89,7 +101,7 @@ matrixgenerator(100, 30, 13, 7, 2, 2, 2, 2)
 //         }
 //     }
 //     io.sockets.emit("send matrix", matrix);
-// }
+
 // gen()
 
 let Shun = require('./shun')
@@ -108,27 +120,27 @@ function createObj() {
     for (let i = 0; i < p; i++) {
         for (let j = 0; j < t; j++) {
 
-            if (matrix[i][j] === 1) {
+            if (matrix[i][j] == 1) {
                 const gr = new Grass(j, i, 1);
                 grassArr.push(gr);
             }
-            if (matrix[i][j] === 2) {
+            if (matrix[i][j] == 2) {
                 const gr1 = new GrassEater(j, i, 1);
                 grassArr1.push(gr1);
             }
-            if (matrix[i][j] === 3) {
+            if (matrix[i][j] == 3) {
                 const gr2 = new Vagr(j, i, 1);
                 grassArr2.push(gr2);
             }
-            if (matrix[i][j] === 4) {
+            if (matrix[i][j] == 4) {
                 const gr3 = new Shun(j, i, 1);
                 grassArr3.push(gr3);
             }
-            if (matrix[i][j] === 5) {
+            if (matrix[i][j] == 5) {
                 const gr4 = new Mard(j, i, 1);
                 grassArr4.push(gr4);
             }
-            if (matrix[i][j] === 6) {
+            if (matrix[i][j] == 6) {
                 const gr5 = new lavMard(j, i, 1);
                 grassArr5.push(gr5);
             }

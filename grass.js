@@ -1,3 +1,4 @@
+
 let LivingC = require ('./LivingC')
 module.exports = class Grass extends LivingC{
     random(ch){
@@ -5,11 +6,12 @@ module.exports = class Grass extends LivingC{
         let result = Math.floor(Math.random()*found.length)
         return found[result];
     }
+    
     mul () {
         this.multiply++;
         // var emptyCells = this.chooseCell(0);
         var newCell = this.random(0);
-        
+       
         if(newCell && this.multiply >= 8){
             var newX = newCell[0];
             var newY = newCell[1];
@@ -19,7 +21,9 @@ module.exports = class Grass extends LivingC{
             grassArr.push(newGrass);
             this.multiply = 0;
         }
-    }
+    
+   
+}
  
 
 }

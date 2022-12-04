@@ -92,7 +92,7 @@ eat(){
                 break;
             }
         }
-        this.sovac=this.sovac +4.9
+        this.sovac=this.sovac +4
     }
 
 }

@@ -11,8 +11,8 @@ app.get('/', function (req, res) {
 
 server.listen(3000);
 
-var p = 100;
-var t = 100;
+var p = 20;
+var t = 20;
 
 
 matrix = [
@@ -25,25 +25,25 @@ grassArr3 = [];
 grassArr4 = [];
 grassArr5 = [];
 function matrixgenerator(ch, ch2, ch3, ch4, ch5, ch6, ch7) {
-matrix = []
-for (let i = 0; i < ch; i++) {
-    matrix[i] = [];
-    for (let j = 0; j < ch; j++) {
-        matrix[i][j] = 0
+    matrix = []
+    for (let i = 0; i < ch; i++) {
+        matrix[i] = [];
+        for (let j = 0; j < ch; j++) {
+            matrix[i][j] = 0
 
-      }
+        }
     }
 
     for (let i = 0; i < ch2; i++) {
-        
+
         for (let j = 0; j < ch2; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
-            matrix[x][y] = 1 
+            matrix[x][y] = 1
         }
     }
     for (let i = 0; i < ch3; i++) {
-       
+
         for (let j = 0; j < ch3; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
@@ -51,7 +51,7 @@ for (let i = 0; i < ch; i++) {
         }
     }
     for (let i = 0; i < ch4; i++) {
-       
+
         for (let j = 0; j < ch4; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
@@ -59,7 +59,7 @@ for (let i = 0; i < ch; i++) {
         }
     }
     for (let i = 0; i < ch5; i++) {
-        
+
         for (let j = 0; j < ch5; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
@@ -67,7 +67,7 @@ for (let i = 0; i < ch; i++) {
         }
     }
     for (let i = 0; i < ch6; i++) {
-    
+
         for (let j = 0; j < ch6; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
@@ -75,7 +75,7 @@ for (let i = 0; i < ch; i++) {
         }
     }
     for (let i = 0; i < ch7; i++) {
-       
+
         for (let j = 0; j < ch7; j++) {
             let x = Math.floor(Math.random() * ch)
             let y = Math.floor(Math.random() * ch)
@@ -84,11 +84,11 @@ for (let i = 0; i < ch; i++) {
     }
     io.sockets.emit("send matrix", matrix);
     return matrix
-  }
+}
 
 
 
-matrix = matrixgenerator(100, 70, 30, 10, 3, 2, 2)
+matrix = matrixgenerator(20, 10, 5, 3, 2, 1, 1)
 console.log(matrix)
 // function gen() {
 
@@ -109,7 +109,8 @@ let Grass = require('./grass')
 let GrassEater = require('./grassEater')
 let Vagr = require('./vagr')
 let Mard = require('./mard')
-let lavMard = require('./lavmard')
+let lavMard = require('./lavmard');
+const { rejects } = require('assert');
 
 
 
@@ -148,9 +149,6 @@ function createObj() {
     }
     io.sockets.emit("send matrix", matrix);
 }
-
-
-
 function game() {
     for (var i in grassArr) {
         grassArr[i].mul();
@@ -176,10 +174,13 @@ function game() {
     }
     for (var i in grassArr4) {
         grassArr4[i].move()
+        grassArr4[i].move1()
         grassArr4[i].eat()
     }
     for (var i in grassArr5) {
+        grassArr5[i].mul()
         grassArr5[i].move()
+        // grassArr5[i].move1()
         grassArr5[i].eat()
     }
     io.sockets.emit("send matrix", matrix);
@@ -192,7 +193,37 @@ setInterval(game, 1000)
 io.on('connection', function (socket) {
     createObj()
 });
+weather = 0
+function spring() {
+    
+        weather = 1
+}
+function summer() {
+    weather = 2
+}
+
+function autumn() {
+    weather = 3
+}
+
+function winter() {
+    weather = 4
+}
+let side = 10
+// function spring1() {
+    
+     
+//         for (var i = 0; i < p; i++) {
+//             for (var j = 0; j < t; j++) {
+//                 if (matrix[i][j] == 1) {
+//                     fill("black")
+//                 }
+//             }
+//         } rect(j * side, i * side, side, side)
+//     }
 
 
+// // var g = document.getElementById("spring")
+// // g.addEventListener("click", spring1);
 
 

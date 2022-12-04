@@ -62,6 +62,24 @@ module.exports = class Mard extends LivingC{
           
         }
     }
+    move1(){
+      
+       
+        // var emptyCells = this.chooseCell(0);
+        var newCell = this.random(1);
+        
+        if(newCell){
+       
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 5;
+            matrix[this.y][this.x]= 1;
+            this.x=newX;
+            this.y=newY;
+        
+          
+        }
+    }
     
     eat(){
         this.kind;
@@ -71,7 +89,7 @@ module.exports = class Mard extends LivingC{
         //     ...grassEaterCells,
         //     ...VagrCells
         // ]
-        var newCell = this.random(2,3);
+        var newCell = this.random(3,2);
         
         if(newCell){
             var newX = newCell[0];

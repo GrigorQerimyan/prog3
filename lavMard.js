@@ -1,3 +1,4 @@
+const GrassEater = require('./grassEater');
 let LivingC = require ('./LivingC')
 module.exports = class lavMard extends LivingC{
     constructor(x,y,index){
@@ -22,39 +23,41 @@ module.exports = class lavMard extends LivingC{
         return super.chooseCell(character)
     
     }
-    // mul() {
-    //     this.kind;
-    //     var emptyCells = this.chooseCell(0);
-    //     var newCell = random(emptyCells);
+    mul() {
+        this.kind;
+     
+        var newCell = this.random(5);
     
-    //     if (newCell && this.kind >= 12) {
-    //         var newX = newCell[0];
-    //         var newY = newCell[1];
-    //         matrix[newY][newX] = 6;
+        if (newCell) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY + 1][newX - 1] =this.random(2);
          
           
-    //         var newlavMard = new lavMard(newX, newY, 1);
-    //         grassArr5.push(newlavMard);
+            var newlavMard = new GrassEater(newX - 1, newY +  1, 1);
+            grassArr5.push(newlavMard);
          
-    //     }
-    // }
-    random(ch,ch2){
-        let found = this.chooseCell(ch,ch2);
+        }
+    }
+   
+    random(ch){
+        let found = this.chooseCell(ch);
         let result = Math.floor(Math.random()*found.length)
         return found[result];
     }
+  
     move(){
       
        
-        // var emptyCells = this.chooseCell(1);
-        var newCell = this.random(1);
+        // var emptyCells = this.choseCell(1);
+        var newCell = this.random(0);
         
         if(newCell){
        
             var newX = newCell[0];
             var newY = newCell[1];
             matrix[newY][newX] = 6;
-            matrix[this.y][this.x]=1 ;
+            matrix[this.y][this.x] = 0;
             this.x=newX;
             this.y=newY;
      
@@ -62,6 +65,26 @@ module.exports = class lavMard extends LivingC{
           
         }
     }
+      
+    // move1(){
+      
+       
+    //     // var emptyCells = this.choseCell(1);
+    //     var newCell = this.random(1);
+        
+    //     if(newCell){
+       
+    //         var newX = newCell[0];
+    //         var newY = newCell[1];
+    //         matrix[newY][newX] = 6;
+    //         matrix[this.y][this.x] = 1;
+    //         this.x=newX;
+    //         this.y=newY;
+     
+        
+          
+    //     }
+    // }
     
     eat(){
         this.kind;
@@ -71,7 +94,7 @@ module.exports = class lavMard extends LivingC{
         //     ...grassEaterCells,
         //     ...VagrCells
         // ]
-        var newCell = this.random(2,4);
+        var newCell = this.random(4);
         
         if(newCell){
             var newX = newCell[0];
